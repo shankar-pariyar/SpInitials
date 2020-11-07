@@ -1,6 +1,6 @@
 ## 0.0.1
 
-* `0.0.1` is the first release of sp_initials.
+* Version `0.0.1` is the first release of sp_initials.
 * This plugin generates initial letters of full name.
 
 ## 0.0.2
