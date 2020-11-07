@@ -1,57 +1,105 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
-
-import 'package:flutter/services.dart';
 import 'package:sp_initials/sp_initials.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
-
-  @override
-  void initState() {
-    super.initState();
-    initPlatformState();
-  }
-
-  // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
-    String platformVersion;
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    try {
-      platformVersion = await SpInitials.platformVersion;
-    } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
-    }
-
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted) return;
-
-    setState(() {
-      _platformVersion = platformVersion;
-    });
-  }
+class MyApp extends StatelessWidget {
+  final List<String> nameList = ["Shankar Pariyar", "Tom Cat", "Jerry Mouse"];
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Plugin example app'),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('SpInitials Demo'),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(height: 20.0),
+            Text(
+              'SpInitials.getInitials()',
+              style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
+            ),
+            getInitialsDemo(context),
+            Divider(),
+            Text(
+              'SpInitials.getInitialsWithShape()',
+              style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
+            ),
+            getInitialsWithShape(context),
+          ],
         ),
-        body: Center(
-          child: Text('Running on: $_platformVersion\n'),
-        ),
+      ),
+    );
+  }
+
+  Widget getInitialsDemo(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(top: 20.0),
+      height: MediaQuery.of(context).size.height / 2.5,
+      child: ListView.builder(
+          itemCount: nameList.length,
+          itemBuilder: (BuildContext context, int index) {
+            return ListTile(
+              contentPadding:
+                  EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+              leading: Text(SpInitials.getInitials(nameList[index]),
+                  style:
+                      TextStyle(fontWeight: FontWeight.bold, fontSize: 25.0)),
+              title: Text(nameList[index]),
+            );
+          }),
+    );
+  }
+
+  Widget getInitialsWithShape(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(top: 20.0),
+      height: MediaQuery.of(context).size.height / 2.5,
+      child: ListView(
+        children: [
+          ListTile(
+            contentPadding:
+                EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
+            leading: SpInitials.getInitialsWithShape(
+              context: context,
+              fullName: nameList[0],
+              fontSize: 25.0,
+              isCircle: true,
+              fontColor: Colors.white,
+            ),
+            title: Text(nameList[0]),
+          ),
+          ListTile(
+            contentPadding:
+                EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
+            leading: SpInitials.getInitialsWithShape(
+              context: context,
+              fullName: nameList[1],
+              fontSize: 25.0,
+              fontColor: Colors.white,
+              borderRadius: 10.0,
+            ),
+            title: Text(nameList[1]),
+          ),
+          ListTile(
+            contentPadding:
+                EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
+            leading: SpInitials.getInitialsWithShape(
+              context: context,
+              fullName: nameList[2],
+              fontSize: 25.0,
+              fontColor: Theme.of(context).primaryColor,
+              borderRadius: 10.0,
+              borderColor: Theme.of(context).primaryColor,
+              borderWidth: 2.0,
+              backgroundColor: Colors.transparent,
+            ),
+            title: Text(nameList[2]),
+          ),
+        ],
       ),
     );
   }
