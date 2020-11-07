@@ -7,3 +7,6 @@
 
 * A widget is added in this version which returns initial letters of full name along with customizable background.
 
+## 0.0.3
+
+* ScreenShot adden in readme page for better understanding.
