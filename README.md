@@ -30,9 +30,9 @@ child: SpInitials.getInitialsWithShape(context: context, fullName: 'Shankar Pari
 | property        | description                                                        | default    |
 | --------------- | ------------------------------------------------------------------ |------------|
 | context         | Pass context of ancestor widget (required)                         |required    |
-| fullName        | String full name to get initial letters(required)                  |required    |
+| fullName        | String, full name to get initial letters(required)                  |required    |
 | radius          | radius of bakground shape (when font size is changed, radius of background shape is changed accordingly)                                                                           |30.0        |
-| isCircle        | if `true`, circle shape                                            |false       |
+| isCircle        | if `true`, creates circle shape                                            |false       |
 | borderRadius    | for rectangle with rounded border (isCircle must be `false`)       |null        |
 | borderWidth     | shape outline/border (when borderColor is set, default borderWidth = 1.0) |null        |
 | borderColor     | shape outline/border color (when borderWidth is set, default borderColor = primaryColor)                                                                          |null        |
@@ -45,4 +45,4 @@ child: SpInitials.getInitialsWithShape(context: context, fullName: 'Shankar Pari
 
 ## Preview Images
 
-<img src="https://github.com/shankar-pariyar/SpInitials/blob/master/screenshots/sp_01.jpg" width="320px" />
+<img src="https://raw.githubusercontent.com/shankar-pariyar/SpInitials/master/screenshots/sp_01.jpg" width="320px" />

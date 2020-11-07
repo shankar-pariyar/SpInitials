@@ -9,4 +9,8 @@
 
 ## 0.0.3
 
-* ScreenShot adden in readme page for better understanding.
+* ScreenShot added in readme page for better understanding.
+
+## 0.0.4
+
+* ScreenShot image loading fixed in readme page and correction in documentation
