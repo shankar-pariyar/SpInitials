@@ -45,4 +45,4 @@ child: SpInitials.getInitialsWithShape(context: context, fullName: 'Shankar Pari
 
 ## Preview Images
 
-<img src="https://raw.githubusercontent.com/ponnamkarthik/FlutterToast/master/screenshot/11.jpg" width="320px" />
+<img src="https://github.com/shankar-pariyar/SpInitials/blob/master/screenshots/sp_01.jpg" width="320px" />
