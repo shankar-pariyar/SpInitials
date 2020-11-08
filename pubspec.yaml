@@ -1,7 +1,7 @@
 name: sp_initials
 description: This plugin returns initial letters of the full name with customizable background, so it can be useful while creating contacts or chat application.
-version: 0.0.3
-# author: Shankar Pariyar
+version: 0.0.4
+# author: shankar-pariyar
 homepage: https://github.com/shankar-pariyar/SpInitials
 
 environment:
